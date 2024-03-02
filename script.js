@@ -9,8 +9,7 @@ const tasksContainer = document.getElementById('tasks-container');
 const titleInput = document.getElementById('title-input');
 const dateInput = document.getElementById('date-input');
 const descriptionInput = document.getElementById('description-input');
-const taskData = []
-taskData = JSON.parse(localStorage.getItem("data"));
+const taskData = JSON.parse(localStorage.getItem("data")) || [];
 let currentTask = {}
 
 
@@ -80,6 +79,11 @@ const reset=()=>{
     currentTask = {};
 
 };
+
+
+if (taskData.length){
+updateTaskContainer();
+}
 
 
 openTaskFormBtn.addEventListener('click',()=> taskForm.classList.toggle("hidden"));
